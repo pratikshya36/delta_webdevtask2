@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	ROGUELIKE
+	</title>
+</head>
+<style>
+	#canvas1
+	{
+	border:solid black;border:10%;background-color:black;margin-left:1%;
+	}
+</style>
+<body>
+	<canvas id="canvas1" width="1300" height="550">
+</canvas>
+<script>
+	window.onload=rect1;
+	var canvas = document.getElementById('canvas1');
+	ctx=canvas.getContext("2d");var x=1100,y=450,speed=2;
+	function rect1()
+	{
+	ctx.clearRect(1000,400,300,100);
+	ctx.lineWidth=5;
+	ctx.strokeStyle="yellow";
+	ctx.strokeRect(1000,400,300,100);
+	ctx.stroke();
+	rect2();
+	}
+	function player()
+	{
+	ctx.fillStyle="red";
+	ctx.fillRect(x,y,40,40);
+	ctx.fill();
+	}
+	function rect2()
+	{
+	ctx.clearRect(800,400,198,200);
+	ctx.fillStyle="grey";
+	ctx.fillRect(850,420,153,50);
+	ctx.fill();
+	rect3();
+	}
+	function rect3()
+	{
+	ctx.clearRect(600,200,250,350);
+	ctx.strokeStyle="yellow";
+	ctx.strokeRect(600,300,250,250);
+	rect4();
+	}
+	function rect4()
+	{
+	ctx.clearRect(350,480,225,200);
+	ctx.fillStyle="grey";
+	ctx.fillRect(400,500,200,50);
+	rect5();
+	}
+	function rect5()
+	{
+	ctx.clearRect(350,380,75,150);
+	ctx.fillStyle="grey";
+	ctx.fillRect(400,400,50,150);
+	
+	rect6();
+	}
+	function rect6()
+	{
+	ctx.clearRect(200,300,300,100);
+	ctx.lineWidth=5;
+	ctx.strokeStyle="yellow";
+	ctx.strokeRect(200,300,300,100);
+	ctx.stroke();
+	rect7();
+	}
+	function rect7()
+	{
+	ctx.clearRect(0,280,175,200);
+	ctx.fillStyle="grey";
+	ctx.fillRect(50,300,150,50);
+	ctx.fill();
+	rect8();
+	}
+	function rect8()
+	{
+	ctx.clearRect(50,100,50,200);
+	ctx.fillStyle="grey";
+	ctx.fillRect(50,200,50,100);
+	ctx.fill();
+	rect9();
+	}
+	function rect9()
+	{
+	ctx.clearRect(0,60,150,140);
+	ctx.lineWidth=5;
+	ctx.strokeStyle="yellow";
+	ctx.strokeRect(0,60,150,140);
+	ctx.stroke();
+	rect10();
+	}
+	function rect10()
+	{
+	ctx.clearRect(150,0,200,150);
+	ctx.fillStyle="grey";
+	ctx.fillRect(150,70,200,50);
+	ctx.fill();
+	rect11();
+	}
+	function rect11()
+	{
+	ctx.clearRect(350,60,300,200);
+	ctx.strokeStyle="yellow";
+	ctx.strokeRect(350,60,300,200);
+	ctx.stroke();
+	rect12();
+	}
+	function rect12()
+	{
+	ctx.clearRect(650,200,100,60);
+	ctx.fillStyle="grey";
+	ctx.fillRect(650,210,100,50);
+	ctx.fill();
+	rect13();
+	}
+	function rect13()
+	{
+	ctx.clearRect(750,100,50,170);
+	ctx.fillStyle="grey";
+	ctx.fillRect(750,110,50,150);
+	ctx.fill();
+	rect14();
+	}
+	function rect14()
+	{
+	ctx.clearRect(740,110,220,50);
+	ctx.fillStyle="grey";
+	ctx.fillRect(750,110,200,50);
+	ctx.fill();
+	rect15();
+	}
+	function rect15()
+	{
+	ctx.clearRect(950,90,250,200);
+	ctx.lineWidth=5;
+	ctx.strokeStyle="yellow";
+	ctx.strokeRect(950,90,250,200);
+	ctx.stroke();
+	rect16();
+	}
+	function rect16()
+	{
+	ctx.clearRect(1100,0,50,90);
+	ctx.fillStyle="grey";
+	ctx.fillRect(1100,0,50,90);
+	ctx.fill();
+	control();
+	}
+	function control()
+	{
+	window.addEventListener("keydown",pressArrowKeys1,true);
+	return setInterval(player,10);
+	}
+	
+	function pressArrowKeys1(event)
+	{
+	switch(event.keyCode)
+	{
+	case 37:if ((x<=1260)&&(x>1000)&&(y>=400)&&(y<=500))
+			{
+			rect1();
+			x=x-speed;
+			}
+	
+			if ((x>810)&&(x<=1000)&&(y>=420)&&(y<=430))
+			{
+			rect1();
+			rect2();
+			x=x-speed;
+			}
+			
+			if ((x>600)&&(x<=810)&&(y>=300)&&(y<=550))
+			{
+			rect2();
+			rect3();
+			x=x-speed;
+			}
+			
+			if ((x>400)&&(x<=600)&&(y>=500)&&(y<=510))
+			{
+			rect3();
+			rect4();
+			x=x-speed;
+			}
+			
+			if ((x>200)&&(x<=460)&&(y>300)&&(y<360))
+			{
+			rect5();
+			rect6();
+			x=x-speed;
+			}
+			
+			if ((x>50)&&(x<=260)&&(y>=300)&&(y<310))
+			{
+			rect6();
+			rect7();
+			x=x-speed;
+			}
+			
+			if ((x>=0)&&(x<=150)&&(y>=60)&&(y<=160))
+			{
+			rect8();
+			rect9();
+			x=x-speed;
+			}
+			
+			if ((x>=110)&&(x<=360)&&(y>=70)&&(y<=80))
+			{
+			rect9();
+			rect10();
+			x=x-speed;
+			}
+			
+			if ((x>350)&&(x<=620)&&(y>=60)&&(y<=260))
+			{
+			rect10();
+			rect11();
+			x=x-speed;
+			}
+			
+			if ((x>=600)&&(x<=710)&&(y>=210)&&(y<=260))
+			{
+			rect10();
+			rect11();
+			x=x-speed;
+			}
+			
+			if ((x>=750)&&(x<=950)&&(y>=110)&&(y<=120))
+			{
+			rect13();
+			rect14();
+			x=x-speed;
+			}
+			
+			if ((x>=950)&&(x<=1170)&&(y>=90)&&(y<=290))
+			{
+			rect14();
+			rect15();
+			x=x-speed;
+			}
+		
+	break;
+	
+case 39:	if ((x>=1000)&&(x<1260)&&(y>=400)&&(y<=500))
+			{
+			rect1();
+			x=x+speed;
+			}
+			
+			if ((x>=810)&&(x<1000)&&(y>=420)&&(y<=430))
+			{
+			rect1();
+			rect2();
+			x=x+speed;
+			}
+			
+			if ((x>=600)&&(x<810)&&(y>=300)&&(y<=550))
+			{
+			rect2();
+			rect3();
+			x=x+speed;
+			}
+			
+			if ((x>=400)&&(x<600)&&(y>=500)&&(y<=510))
+			{
+			rect3();
+			rect4();
+			x=x+speed;
+			}
+			
+			if ((x>=200)&&(x<460)&&(y>=300)&&(y<=400))
+			{
+			rect5();
+			rect6();
+			x=x+speed;
+			}
+			
+			if((x>=50)&&(x<=260)&&(y>=300)&&(y<310))
+			{
+			rect6();
+			rect7();
+			x=x+speed;
+			}
+			
+			if ((x>=-10)&&(x<=110)&&(y>=60)&&(y<=160))
+			{
+			rect8();
+			rect9();
+			x=x+speed;
+			}
+			
+			if ((x>=110)&&(x<=310)&&(y>=70)&&(y<=80))
+			{
+			rect9();
+			rect10();
+			x=x+speed;
+			}
+			
+			if ((x>310)&&(x<=610)&&(y>=60)&&(y<=260))
+			{
+			rect10();
+			rect11();
+			x=x+speed;
+			}
+			
+			if ((x>=600)&&(x<=750)&&(y>=210)&&(y<=260))
+			{
+			rect10();
+			rect11();
+			x=x+speed;
+			}
+			
+			if ((x>=740)&&(x<910)&&(y>=110)&&(y<=120))
+			{
+			rect13();
+			rect14();
+			x=x+speed;
+			}
+			
+			if ((x>=910)&&(x<=1160)&&(y>=90)&&(y<=290))
+			{
+			rect14();
+			rect15();
+			x=x+speed;
+			}
+	break;
+	
+	case 38:if((y>400)&&(x>=1000)&&(x<1260)&&(y<=500))
+			{
+			rect1();
+			y=y-speed;
+			}
+			
+			if ((y>300)&&(x>=600)&&(x<=850))
+			{
+			rect3();
+			y=y-speed;
+			}
+			
+			if ((x>400)&&(x<410)&&(y>=300)&&(y<550))
+			{
+			rect3();
+			rect4();
+			y=y-speed;
+			}
+		
+			if ((y>=300)&&(x>=200)&&(x<=510)&&(y<=370))
+			{
+			rect5();
+			rect6();
+			y=y-speed;
+			}
+			
+			if ((x>=50)&&(x<=60)&&(y>=200)&&(y<=320))
+			{
+			rect6();
+			rect7();
+			y=y-speed;
+			}
+			
+			if ((x>=-10)&&(x<=110)&&(y>=60)&&(y<=200))
+			{
+			rect8();
+			rect9();
+			y=y-speed;
+			}
+			
+			if ((x>310)&&(x<=610)&&(y>=60)&&(y<=230))
+			{
+			rect10();
+			rect11();
+			y=y-speed;
+			}
+			
+			if ((x>=750)&&(x<=760)&&(y>=110)&&(y<=230))
+			{
+			rect11();
+			rect12();
+			y=y-speed;
+			}
+			
+			if ((x>=950)&&(x<=1170)&&(y>=90)&&(y<=260))
+			{
+			rect14();
+			rect15();
+			y=y-speed;
+			}
+			
+			if ((x>=1100)&&(x<=1110)&&(y<=90))
+			{
+			rect15();
+			rect16();
+			y=y-speed;
+			}
+	break;
+	case 40:if ((y<=460)&&(x>=1000)&&(x<1260)&&(y>380))
+			{
+			rect1();
+			y=y+speed;
+			}
+			
+			if ((y<=510)&&(x>=600)&&(x<=850)&&(y>=300))
+			{
+			rect3();
+			y=y+speed;
+			}
+			
+			if ((x>400)&&(x<410)&&(y>=300)&&(y<510))
+			{
+			rect3();
+			rect4();
+			y=y+speed;
+			}
+			
+			if ((y<=360)&&(x>=200)&&(x<=500)&&(y>=290))
+			{
+			rect5();
+			rect6();
+			y=y+speed;
+			}
+			
+			if ((x>=50)&&(x<=60)&&(y>=160)&&(y<=310))
+			{
+			rect6();
+			rect7();
+			y=y+speed;
+			}
+			
+			if ((x>=-10)&&(x<=110)&&(y>=50)&&(y<160))
+			{
+			rect8();
+			rect9();
+			y=y+speed;
+			}
+			
+			if ((x>310)&&(x<=610)&&(y>=50)&&(y<=220))
+			{
+			rect10();
+			rect11();
+			y=y+speed;
+			}
+			
+			if ((x>=750)&&(x<=760)&&(y>=100)&&(y<=220))
+			{
+			rect11();
+			rect12();
+			y=y+speed;
+			}
+			
+			if ((x>=950)&&(x<=1170)&&(y>=80)&&(y<=250))
+			{
+			rect14();
+			rect15();
+			y=y+speed;
+			}
+			
+			if ((x>=1100)&&(x<=1110)&&(y<=90))
+			{
+			rect15();
+			rect16();
+			y=y+speed;
+			}
+	break;	
+	}
+	}
+</script>
+</body>
+</html>

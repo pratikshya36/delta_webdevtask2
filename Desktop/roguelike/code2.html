@@ -1,0 +1,164 @@
+<!DOCTYPE.html>
+<html>
+<head>
+</head>
+<style>
+	#canvas1
+	{
+	border:solid black;border:10%;background-color:black;margin-left:1%;
+	}
+</style>
+<body>
+	<canvas id="canvas1" width="1300" height="550">
+	</canvas>
+<script>
+	window.onload=array_setup;
+	var canvas=document.getElementById("canvas1");
+	var ctx=canvas.getContext("2d");
+	var x1=1100,y1=450,speed=2,i;
+	var rect=[];
+	function array_setup()
+	{
+	rect.push(new draw1(1000,400,300,100));
+	rect.push(new draw2(850,420,153,50));
+	rect.push(new draw1(600,300,250,250));
+	rect.push(new draw2(400,500,200,50));
+	rect.push(new draw2(400,400,50,150));
+	rect.push(new draw1(200,300,300,100));
+	rect.push(new draw2(50,300,150,50));
+	rect.push(new draw2(50,200,50,100));
+	rect.push(new draw1(0,60,150,140));
+	rect.push(new draw2(150,70,200,50));
+	rect.push(new draw1(350,60,300,200));
+	rect.push(new draw2(650,210,100,50));
+	rect.push(new draw2(750,110,50,150));
+	rect.push(new draw2(750,110,200,50));
+	rect.push(new draw1(950,90,250,200));
+	rect.push(new draw2(1100,0,50,90));
+	if (rect.length==16)
+	check_position();
+	}
+	
+
+	function draw1(x,y,width,height)
+	{
+	this.x=x;
+	this.y=y;
+	this.width=width;
+	this.height=height;
+	ctx.clearRect(this.x,this.y,this.width,this.height);
+	ctx.strokeStyle="yellow";
+	ctx.lineWidth=5;
+	ctx.strokeRect(this.x,this.y,this.width,this.height);
+	ctx.stroke();
+	}
+	function draw2(x,y,width,height)
+	{
+	this.x=x;
+	this.y=y;
+	this.width=width;
+	this.height=height;
+	ctx.clearRect(this.x,this.y,this.width,this.height);
+	ctx.fillStyle="grey";
+	ctx.fillRect(this.x,this.y,this.width,this.height);
+	ctx.fill();
+	}
+	function player()
+	{
+	ctx.clearRect(x1,y1,40,40);
+	ctx.fillStyle="red";
+	ctx.fillRect(x1,y1,40,40);
+	ctx.fill();
+	}
+	
+	
+	
+	
+	function check_position()
+	{
+	for (i=0;i<rect.length;i++)
+	{
+	if ((x1>=rect[i].x)&&(x1<=(rect[i].x+rect[i].width-40))&&(y1>=rect[i].y)&&(y1<=(rect[i].y+rect[i].height-40)))
+	{
+	if ((i==1)||(i==3)||(i=4)||(i==6)||(i==7)||(i==9)||(i==11)||(i==12)||(i==13)||(i==15))
+	{
+	window.addEventListener("keydown",pressArrowKeys2,true);
+	return setInterval(player,10);
+	}
+	else
+	{
+	window.addEventListener("keydown",pressArrowKeys1,true);
+	return setInterval(player,10);
+	}
+	}
+	}
+	}
+	
+	function pressArrowKeys1(event)
+	{
+	switch(event.keyCode)
+	{
+	case 37:if ((x1>=rect[i].x)&&(x1<=(rect[i].x+rect[i].width))&&(y1>=rect[i].y)&&(y1<=(rect[i].y+rect[i].height)))
+				{
+			
+				draw1(rect[i].x,rect[i].y,rect[i].width,rect[i].height);
+				x1=x1-speed;
+				
+				}
+		break;
+		case 39:if ((x1>=rect[i].x)&&(x1<(rect[i].x+rect[i].width-40))&&(y1>=rect[i].y)&&(y1<=(rect[i].y+rect[i].height)))
+				{
+				draw1(rect[i].x,rect[i].y,rect[i].width,rect[i].height);
+				x1=x1+speed;
+				
+				}
+		break;
+		case 38:if ((x1>=rect[i].x)&&(x1<=(rect[i].x+rect[i].width))&&(y1>rect[i].y)&&(y1<=(rect[i].y+rect[i].height)))
+				{
+				draw1(rect[i].x,rect[i].y,rect[i].width,rect[i].height);
+				y1=y1-speed;
+				}
+		break;
+		case 40:if ((x1>=rect[i].x)&&(x1<=(rect[i].x+rect[i].width))&&(y1>=(rect[i].y))&&(y1<=(rect[i].y+rect[i].height-40)))
+				{
+				draw1(rect[i].x,rect[i].y,rect[i].width,rect[i].height);
+				y1=y1+speed;
+				}
+		break;
+	}
+	}
+	function pressArrowKeys2(event)
+	{
+	switch(event.keyCode)
+	{
+	case 37:if ((x1>rect[i].x)&&(x1<=(rect[i].x+rect[i].width))&&(y1>=rect[i].y)&&(y1<=(rect[i].y+rect[i].height)))
+				{
+			
+				draw2(rect[i].x,rect[i].y,rect[i].width,rect[i].height);
+				x1=x1-speed;
+				}
+		break;
+		case 39:if ((x1>=rect[i].x)&&(x1<(rect[i].x+rect[i].width-40))&&(y1>=rect[i].y)&&(y1<=(rect[i].y+rect[i].height)))
+				{
+				draw2(rect[i].x,rect[i].y,rect[i].width,rect[i].height);
+				x1=x1+speed;
+				}
+		break;
+		case 38:if ((x1>=rect[i].x)&&(x1<=(rect[i].x+rect[i].width))&&(y1>rect[i].y)&&(y1<=(rect[i].y+rect[i].height)))
+				{
+				draw2(rect[i].x,rect[i].y,rect[i].width,rect[i].height);
+				y1=y1-speed;
+				}
+		break;
+		case 40:if ((x1>=rect[i].x)&&(x1<=(rect[i].x+rect[i].width))&&(y1>=(rect[i].y))&&(y1<=(rect[i].y+rect[i].height-40)))
+				{
+				draw2(rect[i].x,rect[i].y,rect[i].width,rect[i].height);
+				y1=y1+speed;
+				}
+		break;
+	}
+	}
+	
+	</script>
+</body>
+</html>
